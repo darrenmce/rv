@@ -13,10 +13,10 @@ export type ActivityStats = {
 
 export type ActivityTrackPoint = {
   time: Date,
-  position: {
-    altitudeMeters?: number,
-    lat?: number,
-    long?: number
+  altitudeMeters?: number,
+  position?: {
+    lat: number,
+    lng: number
   }
   distanceMeters?: number,
   heartRateBpm?: number,

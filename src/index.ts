@@ -1,12 +1,13 @@
-import { TCXParser } from './lib/TCXParser';
-import path from 'path';
-// import * as fs from 'fs';
+import { createServices } from './services';
+import { createAPIServer } from './api';
 
-async function main() {
-  const testTcx = await TCXParser.createFromFilePath(path.resolve(__dirname, '..', 'test_data', '3629706178.tcx'));
+async function initServer() {
+  const services = await createServices();
+  const server = createAPIServer(services);
 
-  // fs.writeFileSync('test.json', JSON.stringify(testTcx.xmlData));
-  console.log(testTcx.getActivity());
+  server.listen(8080, () => {
+    console.log('listening on port', 8080);
+  })
 }
 
-main();
+initServer();

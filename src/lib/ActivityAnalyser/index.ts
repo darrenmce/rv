@@ -6,5 +6,7 @@ export class ActivityAnalyser {
   ) {
   }
 
-
+  public async getActivityAnalysis() {
+    return this.activity;
+  }
 }

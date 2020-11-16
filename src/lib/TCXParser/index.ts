@@ -61,11 +61,11 @@ export class TCXParser {
           time: new Date(Time),
           distanceMeters: DistanceMeters ? parseFloat(DistanceMeters) : undefined,
           heartRateBpm: HeartRateBpm ? parseFloat(HeartRateBpm.Value) : undefined,
-          position: {
-            altitudeMeters: AltitudeMeters ? parseFloat(AltitudeMeters) : undefined,
-            lat: Position ? parseFloat(Position.LatitudeDegrees) : undefined,
-            long: Position ? parseFloat(Position.LongitudeDegrees) : undefined
-          }
+          altitudeMeters: AltitudeMeters ? parseFloat(AltitudeMeters) : undefined,
+          position: Position ? {
+            lat: parseFloat(Position.LatitudeDegrees),
+            lng: parseFloat(Position.LongitudeDegrees)
+          }: undefined
         }))
     }
   }
